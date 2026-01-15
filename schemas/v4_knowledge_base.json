@@ -4,7 +4,7 @@
   "description": "Verified factual clusters used for the 0.75 similarity gate.",
   "document_structure": {
     "_id": "string (e.g., faq_002)",
-    "tenantId": "string (The organization ID, e.g., Niyomilan)",
+    "tenantId": "string (The organization ID, e.g., companyxyz)",
     "domainId": "string (The cluster ID, e.g., sales or support)",
     "question": "string (The canonical user query)",
     "answer": "string (The verified, grounded response)",
@@ -17,7 +17,7 @@
   "example_document":
   {
     "_id": "faq_002",
-    "tenantId": "Niyomilan",
+    "tenantId": "companyxyz",
     "domainId": "sales",
     "question": "What is our sales funnel?",
     "answer": "Our sales funnel guides potential customers from initial awareness to...",
