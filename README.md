@@ -6,7 +6,7 @@
 ## 01 | Executive Abstract
 The Semantic Vector Mapping Protocol (SVMP) was developed to solve the **"Reliability Gap"** in Large Language Model (LLM) deployments. While generative AI excels at fluid conversation, it natively lacks the deterministic guardrails required for high-stakes service environments. 
 
-SVMP introduces a proprietary, threshold-based governance layer designed to eliminate hallucination and ensure data integrity at scale[cite: 9].
+SVMP introduces a proprietary, threshold-based governance layer designed to eliminate hallucination and ensure data integrity at scale.
 
 ## 02 | Core Governance (v3.0 Baseline)
 The v3.0 architecture establishes the "Governance Gate," a mathematical validator that enforces a binary pass/fail state on LLM outputs.
