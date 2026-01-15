@@ -1,6 +1,6 @@
 # SVMP: Semantic Vector Mapping Protocol
 
-**Version:** 3.0 (Pilot Baseline) | **Status:** v5.0 (Production-Grade Transition)  
+**Version:** 3.0 (Pilot Baseline) | **Status:** v4.0 (Production-Grade Transition)  
 **Founding Team:** Pranav H (Lead Architect), Samarth D Magi (Product Lead), Shravan Kumar (Operations Lead) 
 
 ## 01 | Executive Abstract
@@ -13,7 +13,7 @@ The v3.0 architecture establishes the "Governance Gate," a mathematical validato
 
 - **The Threshold (≥0.75):** Every query is converted into a mathematical vector and compared against a verified knowledge base in MongoDB.
 - **Deterministic Logic:** If the Semantic Similarity Score is ≥0.75, a factual match is retrieved.
-- **Escalation Path:** If the score is ≥0.75, the automation "freezes" and triggers a human handoff via WhatsApp or Slack.
+- **Escalation Path:** If the score is <0.75, the automation "freezes" and triggers a human handoff via WhatsApp or Slack.
 - **Performance:** In pilot testing, this architecture achieved a **0% hallucination rate** by prioritizing certainty over guessing.
 
 ## 03 | Evolution to v5.0 (Session-Level Truth)
