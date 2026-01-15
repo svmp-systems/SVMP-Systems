@@ -1,0 +1,50 @@
+{
+  "collection": "tenants",
+  "version": "5.0",
+  "description": "Organizational configuration, domain mapping, and global governance settings.",
+  "document_structure": {
+    "_id": "string (Unique Tenant ID, e.g., t_001)",
+    "name": "string (Business Name, e.g., companyxyz)",
+    "domains": "array (List of isolated knowledge clusters like 'sales' or 'general')",
+    "contactInfo": "object (Email and Phone for escalation and admin)",
+    "settings": {
+      "aiPromptExamples": "array (Guidelines for intent matching per domain)",
+      "confidenceThreshold": "number (The SVMP Governance Gate limit, default: 0.75)"
+    },
+    "createdAt": "ISO-8601 Timestamp",
+    "updatedAt": "ISO-8601 Timestamp"
+  },
+
+
+  
+  "example_document": 
+  {
+    "_id": "t_001",
+    "name": "companyxyz",
+    "domains": [
+      {
+        "id": "sales",
+        "name": "Sales",
+        "description": "Questions about product sales, pricing, discounts"
+      },
+      {
+        "id": "general",
+        "name": "general",
+        "description": "questions about company, contact info, general policy"
+      }
+    ],
+    "contactInfo": {
+      "email": "Niyomilan25@gmail.com",
+      "phone": "+94740484194"
+    },
+    "settings": {
+      "aiPromptExamples": [
+        "Intent examples for sales domain",
+        "Intent examples for General domain"
+      ],
+      "confidenceThreshold": 0.75
+    },
+    "createdAt": "2026-01-12T16:00:00Z",
+    "updatedAt": "2026-01-12T16:00:00Z"
+  }
+}
