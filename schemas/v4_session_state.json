@@ -1,0 +1,21 @@
+{
+  "_id": "ObjectId('696552a7e849104a1b0b9f6b8')",
+  "userId": "9740484194",
+  "clientId": "whatsapp",
+  "tenantId": "companyname",
+  "status": "open",
+  "createdAt": "2026-01-12T19:59:35.439Z",
+  "updatedAt": "2026-01-12T19:59:48.143Z",
+  "debounceExpiresAt": "2026-01-12T20:00:03.143Z",
+  "messages": [
+    {
+      "text": "hi",
+      "at": "2026-01-12T19:59:35.439Z"
+    },
+    {
+      "text": "what do you guys do",
+      "at": "2026-01-12T19:59:48.143Z"
+    }
+  ],
+  "processing": true
+}
