@@ -1,4 +1,6 @@
 # SVMP: Semantic Vector Mapping Protocol
+Current README reflects v3.0. v4.0 documentation will be published with the upcoming whitepaper.
+
 
 **Version:** 3.0 (Pilot Baseline) | **Status:** v4.0 (Production-Grade Transition)  
 **Founding Team:** Pranav H (Lead Architect), Samarth D Magi (Product Lead), Shravan Kumar (Operations Lead) 
@@ -16,7 +18,7 @@ The v3.0 architecture establishes the "Governance Gate," a mathematical validato
 - **Escalation Path:** If the score is <0.75, the automation "freezes" and triggers a human handoff via WhatsApp or Slack.
 - **Performance:** In pilot testing, this architecture achieved a **0% hallucination rate** by prioritizing certainty over guessing.
 
-## 03 | Evolution to v5.0 (Session-Level Truth)
+## 03 | Evolution to v4.0 (Session-Level Truth)
 Building on the v3.0 baseline, v4.0 transitions from processing single messages to managing **stateful sessions**.
 
 ### The Identity Model
