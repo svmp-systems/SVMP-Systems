@@ -1,4 +1,4 @@
-# SVMP v5.0 | n8n Orchestration Logic
+# SVMP v4.0 | n8n Orchestration Logic
 
 The system is decoupled into three distinct n8n workflows to ensure high-availability and prevent race conditions.
 
