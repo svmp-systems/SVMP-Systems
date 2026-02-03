@@ -1,45 +1,49 @@
 {
-  "collection": "session_state",
-  "version": "5.1",
-  "description": "SVMP v4.1 Governance Schema: Implements strict multi-tenant isolation via identity tuples and 2.5s soft-debounce aggregation.",
-  "document_structure": {
+  "bsonType": "object",
+  "title": "v4.1 Session State (Production)",
+  "required": ["identity_tuple", "status", "debounceExpiresAt"],
+  "properties": {
     "identity_tuple": {
-      "tenantId": "string (Business organization ID)",
-      "clientId": "string (Integration channel ID)",
-      "userId": "string (Phone number or unique identifier)"
+      "bsonType": "object",
+      "required": ["tenantId", "domainId", "userId"],
+      "properties": {
+        "tenantId": {
+          "bsonType": "string",
+          "description": "Organization Identifier (e.g., Niyomilan)"
+        },
+        "domainId": {
+          "bsonType": "string",
+          "description": "Cluster Routing ID (e.g., ecom_001, support_002)"
+        },
+        "userId": {
+          "bsonType": "string",
+          "description": "End-user identifier"
+        }
+      }
     },
-    "governance_metadata": {
-      "processing": "boolean (MUTEX Lock: true when Workflow B is active)",
-      "debounceExpiresAt": "ISO-8601 Timestamp (Current Time + 2.5s for message aggregation)",
-      "lastSimilarityScore": "float (0.0 - 1.0, required for audit)",
-      "status": "string (pending | processed | escalated)"
+    "messages": {
+      "bsonType": "array",
+      "description": "Aggregated thought unit from soft-debounce",
+      "items": {
+        "bsonType": "object",
+        "required": ["role", "content", "timestamp"],
+        "properties": {
+          "role": { "enum": ["user", "system", "assistant"] },
+          "content": { "bsonType": "string" },
+          "timestamp": { "bsonType": "date" }
+        }
+      }
     },
-    "session_data": {
-      "messages": "array (List of incoming user messages in the current window)",
-      "aggregated_context": "string (The combined 'thought unit')"
+    "debounceExpiresAt": {
+      "bsonType": "date",
+      "description": "The exact time when the 2.5s window closes"
+    },
+    "status": {
+      "enum": ["accumulating", "processing", "completed", "archived"]
+    },
+    "similarity_score": {
+      "bsonType": "double",
+      "description": "Forensic audit score (must be >= 0.75)"
     }
-  },
-  "example_document": {
-    "_id": "696552a7e849104a1b0b9f6b8",
-    "identity_tuple": {
-      "tenantId": "companyxyz",
-      "clientId": "c_001",
-      "userId": "9740484194"
-    },
-    "governance_metadata": {
-      "processing": true,
-      "debounceExpiresAt": "2026-01-12T20:00:03.143Z",
-      "lastSimilarityScore": 0.82,
-      "status": "processed"
-    },
-    "session_data": {
-      "messages": [
-        { "text": "hi", "at": "2026-01-12T19:59:35.439Z" },
-        { "text": "what do you guys do", "at": "2026-01-12T19:59:36.143Z" }
-      ],
-      "aggregated_context": "hi what do you guys do"
-    },
-    "createdAt": "2026-01-12T19:59:35.439Z",
-    "updatedAt": "2026-01-12T20:00:05.143Z"
   }
 }

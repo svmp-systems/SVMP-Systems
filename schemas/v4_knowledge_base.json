@@ -1,28 +1,32 @@
 {
-  "collection": "knowledge_base",
-  "version": "4.0 (v3.0 Data Migrated)",
-  "description": "Verified factual clusters used for the 0.75 similarity gate.",
-  "document_structure": {
-    "_id": "string (e.g., faq_002)",
-    "tenantId": "string (The organization ID, e.g., companyxyz)",
-    "domainId": "string (The cluster ID, e.g., sales or support)",
-    "question": "string (The canonical user query)",
-    "answer": "string (The verified, grounded response)",
-    "tags": ["array of strings for secondary filtering"],
-    "createdAt": "ISO-8601 Timestamp",
-    "updatedAt": "ISO-8601 Timestamp"
-  },
-
-  
-  "example_document":
-  {
-    "_id": "faq_002",
-    "tenantId": "companyxyz",
-    "domainId": "sales",
-    "question": "What is our sales funnel?",
-    "answer": "Our sales funnel guides potential customers from initial awareness to...",
-    "tags": ["sales", "funnel"],
-    "createdAt": "2026-01-13T00:00:00Z",
-    "updatedAt": "2026-01-13T00:00:00Z"
+  "bsonType": "object",
+  "title": "v4.1 Knowledge Base (RAG Source)",
+  "required": ["tenantId", "domainId", "question", "vector_embedding"],
+  "properties": {
+    "tenantId": {
+      "bsonType": "string",
+      "description": "Data Silo Owner"
+    },
+    "domainId": {
+      "bsonType": "string",
+      "description": "Logic Cluster (sales vs support)"
+    },
+    "question": {
+      "bsonType": "string",
+      "description": "Grounded user query"
+    },
+    "answer": {
+      "bsonType": "string",
+      "description": "Deterministic factual response"
+    },
+    "tags": {
+      "bsonType": "array",
+      "items": { "bsonType": "string" }
+    },
+    "vector_embedding": {
+      "bsonType": "array",
+      "items": { "bsonType": "double" },
+      "description": "1536-dim vector for similarity search"
+    }
   }
 }
