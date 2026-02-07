@@ -1,4 +1,4 @@
-# 🛡️ SVMP v4.1: Architecture & Governance Engine
+# SVMP v4.1: Architecture & Governance Engine
 
 > **System Status:** Production Grade  
 > **Core Philosophy:** *Large Language Models (LLMs) are non-deterministic components and must be managed as untrusted workers inside a deterministic system.*
@@ -7,7 +7,7 @@ SVMP (Semantic Vector Mapping Protocol) is a **governance layer** designed to br
 
 ---
 
-## 📑 Table of Contents
+## Table of Contents
 - [1. Design Premise](#1-design-premise)
 - [2. The Tri-Workflow Engine](#2-the-tri-workflow-engine)
 - [3. Architectural Invariants](#3-architectural-invariants)
@@ -87,13 +87,13 @@ Users rarely send complete thoughts in one message (e.g., *"Hi"* → *"I need he
 ## 6. Intent Bifurcation & Governance
 SVMP explicitly separates **Informational** and **Transactional** paths before any text generation occurs.
 
-### 🛣️ Transactional Path (Deterministic)
+### Transactional Path (Deterministic)
 If the Intent Classifier detects a need for an Order/User ID:
 * **Check:** Is the ID present in the `combinedText`?
 * **Action:** Fetch live data from Shopify/CRM API.
 * **Safety:** If ID is missing, the system asks for it and stops—no guessing.
 
-### 🧠 Informational Path (Probabilistic)
+### Informational Path (Probabilistic)
 Queries run through the **Vector Similarity Gate**:
 * **Cosine Similarity ≥ 0.75:** System auto-replies using verified Knowledge Base clusters.
 * **Cosine Similarity < 0.75:** System freezes and escalates to a human via Slack.
